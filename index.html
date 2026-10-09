@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#07130f" />
+    <meta name="description" content="一款霓虹街机风格的网页版贪吃蛇小游戏。" />
+    <title>霓虹贪吃蛇</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307130f'/%3E%3Cpath d='M14 16h28v11H25v10h25v15H12V41h27V31H14z' fill='%236cff8d'/%3E%3Ccircle cx='45' cy='21' r='3' fill='%2307130f'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <div><p class="eyebrow">ARCADE 01</p><h1>霓虹贪吃蛇</h1></div>
+        </div>
+        <button id="soundButton" class="icon-button" type="button" aria-label="关闭音效" aria-pressed="true"><span aria-hidden="true">♪</span></button>
+      </header>
+
+      <section class="game-layout" aria-label="贪吃蛇游戏">
+        <aside class="score-panel" aria-label="游戏数据">
+          <div class="score-block"><span>当前分数</span><strong id="score">000</strong></div>
+          <div class="score-block"><span>最高纪录</span><strong id="bestScore">000</strong></div>
+          <div class="status-block"><span class="status-light" aria-hidden="true"></span><span id="statusText">等待开始</span></div>
+          <div class="level-block"><span>速度</span><div class="level-bars" id="speedBars" aria-label="速度 1 级"><i></i><i></i><i></i><i></i><i></i></div></div>
+        </aside>
+
+        <div class="cabinet">
+          <div class="screen-wrap">
+            <canvas id="gameCanvas" width="600" height="600" aria-label="贪吃蛇游戏区域"></canvas>
+            <div class="scanlines" aria-hidden="true"></div>
+            <div class="game-overlay" id="gameOverlay">
+              <p class="overlay-kicker" id="overlayKicker">准备好了吗？</p>
+              <h2 id="overlayTitle">开始游戏</h2>
+              <p id="overlayText">吃掉果实，别撞到自己</p>
+              <button id="startButton" class="primary-button" type="button">开始游戏</button>
+              <span class="key-hint">按 Enter 也可以开始</span>
+            </div>
+          </div>
+          <div class="screen-footer"><span>方向键 / WASD 移动</span><button id="pauseButton" type="button" disabled>暂停</button></div>
+        </div>
+
+        <aside class="help-panel">
+          <div><p class="eyebrow">操作方式</p><h2>保持移动</h2></div>
+          <div class="mini-keys" aria-hidden="true"><span></span><kbd>↑</kbd><span></span><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div>
+          <p>用方向键或 WASD 改变方向。按空格键可暂停。</p>
+          <div class="legend"><span><i class="snake-dot"></i>蛇身</span><span><i class="food-dot"></i>果实</span></div>
+        </aside>
+      </section>
+
+      <section class="touch-controls" aria-label="触屏方向键">
+        <span></span><button data-direction="up" aria-label="向上">↑</button><span></span>
+        <button data-direction="left" aria-label="向左">←</button><button data-direction="down" aria-label="向下">↓</button><button data-direction="right" aria-label="向右">→</button>
+      </section>
+    </main>
+  </body>
+</html>
